@@ -3,15 +3,15 @@
 	"id": "lavaworks",
 	"version": "${version}",
 	"name": "Lavaworks",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Diversify your world's lava ocean.",
 	"authors": [
 		"trashoflevillage"
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/project/lavaworks",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/trashoflevillage/lavaworks"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/lavaworks/icon.png",
 	"environment": "*",
 	"entrypoints": {
