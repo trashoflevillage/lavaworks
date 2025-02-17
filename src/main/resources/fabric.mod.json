@@ -3,7 +3,7 @@
 	"id": "lavaworks",
 	"version": "${version}",
 	"name": "Lavaworks",
-	"description": "Diversify your world's lava ocean.",
+	"description": "A highly configurable biome lava mod.",
 	"authors": [
 		"trashoflevillage"
 	],
@@ -15,6 +15,9 @@
 	"icon": "assets/lavaworks/icon.png",
 	"environment": "*",
 	"entrypoints": {
+		"main": [
+			"io.github.trashoflevillage.lavaworks.LavaWorks"
+		],
 		"client": [
 			"io.github.trashoflevillage.lavaworks.LavaWorksClient"
 		],

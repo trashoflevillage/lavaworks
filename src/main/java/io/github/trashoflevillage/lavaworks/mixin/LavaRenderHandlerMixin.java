@@ -1,5 +1,6 @@
 package io.github.trashoflevillage.lavaworks.mixin;
 
+import io.github.trashoflevillage.lavaworks.config.LavaWorksConfig;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandler;
 import net.fabricmc.fabric.impl.client.rendering.fluid.FluidRenderHandlerRegistryImpl;
 import net.minecraft.client.texture.Sprite;
@@ -7,6 +8,7 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ColorHelper;
 import net.minecraft.world.BlockRenderView;
@@ -18,6 +20,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.Inject;
+
+import java.awt.*;
 
 @Mixin(targets = "net/fabricmc/fabric/impl/client/rendering/fluid/FluidRenderHandlerRegistryImpl$LavaRenderHandler")
 public class LavaRenderHandlerMixin implements FluidRenderHandler {
@@ -50,8 +54,18 @@ public class LavaRenderHandlerMixin implements FluidRenderHandler {
 	private static int getLavaColor(@Nullable BlockRenderView view, @Nullable BlockPos pos) {
 		if (view != null) {
 			RegistryEntry<Biome> biome = view.getBiomeFabric(pos);
-			if (biome.matchesKey(BiomeKeys.SOUL_SAND_VALLEY)) return ColorHelper.Argb.getArgb(255, 25, 125, 255);
-			if (biome.matchesKey(BiomeKeys.BASALT_DELTAS)) return ColorHelper.Argb.getArgb(255, 255, 175, 175);
+			Identifier id = Identifier.of(biome.getIdAsString());
+			int biomeIndex = LavaWorksConfig.biomeIds.indexOf(id);
+			if (biomeIndex >= 0) {
+				Color color = Color.decode(LavaWorksConfig.biomeColors.get(biomeIndex));
+				int r = color.getRed();
+				int g = color.getGreen();
+				int b = color.getBlue();
+				return ColorHelper.Argb.getArgb(r, g, b);
+			}
+			return ColorHelper.Argb.getArgb(255, 255, 255);
+//			if (biome.matchesId()) return ColorHelper.Argb.getArgb(r, g, b);
+//			if (biome.matchesKey(BiomeKeys.BASALT_DELTAS)) return ColorHelper.Argb.getArgb(255, 255, 175, 175);
 		}
 		return -1;
 	}
