@@ -1,5 +1,6 @@
 package io.github.trashoflevillage.lavaworks.mixin;
 
+import io.github.trashoflevillage.lavaworks.LavaWorks;
 import io.github.trashoflevillage.lavaworks.config.LavaWorksConfig;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandler;
 import net.fabricmc.fabric.impl.client.rendering.fluid.FluidRenderHandlerRegistryImpl;
@@ -37,36 +38,16 @@ public class LavaRenderHandlerMixin implements FluidRenderHandler {
 	public int getFluidColor(@Nullable BlockRenderView view, @Nullable BlockPos pos, FluidState state) {
 		if (pos == null) return -1;
 		int[] colors = new int[4];
-		int color = getLavaColor(view, pos);
-		colors[0] = getLavaColor(view, pos.add(1, 0, 0));
-		colors[1] = getLavaColor(view, pos.add(-1, 0, 0));
-		colors[2] = getLavaColor(view, pos.add(0, 0, 1));
-		colors[3] = getLavaColor(view, pos.add(0, 0, -1));
+		int color = LavaWorks.getLavaColor(view, pos);
+		colors[0] = LavaWorks.getLavaColor(view, pos.add(1, 0, 0));
+		colors[1] = LavaWorks.getLavaColor(view, pos.add(-1, 0, 0));
+		colors[2] = LavaWorks.getLavaColor(view, pos.add(0, 0, 1));
+		colors[3] = LavaWorks.getLavaColor(view, pos.add(0, 0, -1));
 
 		for (int i : colors) {
 			color = ColorHelper.Argb.averageArgb(color, i);
 		}
 
 		return color;
-	}
-
-	@Unique
-	private static int getLavaColor(@Nullable BlockRenderView view, @Nullable BlockPos pos) {
-		if (view != null) {
-			RegistryEntry<Biome> biome = view.getBiomeFabric(pos);
-			Identifier id = Identifier.of(biome.getIdAsString());
-			int biomeIndex = LavaWorksConfig.biomeIds.indexOf(id);
-			if (biomeIndex >= 0) {
-				Color color = Color.decode(LavaWorksConfig.biomeColors.get(biomeIndex));
-				int r = color.getRed();
-				int g = color.getGreen();
-				int b = color.getBlue();
-				return ColorHelper.Argb.getArgb(r, g, b);
-			}
-			return ColorHelper.Argb.getArgb(255, 255, 255);
-//			if (biome.matchesId()) return ColorHelper.Argb.getArgb(r, g, b);
-//			if (biome.matchesKey(BiomeKeys.BASALT_DELTAS)) return ColorHelper.Argb.getArgb(255, 255, 175, 175);
-		}
-		return -1;
 	}
 }

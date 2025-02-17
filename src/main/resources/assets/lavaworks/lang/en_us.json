@@ -2,5 +2,9 @@
   "lavaworks.midnightconfig.title": "Lavaworks",
   "lavaworks.midnightconfig.instructionsComment": "Put the color you want in the same index as the appropriate biome.",
   "lavaworks.midnightconfig.biomeIds": "Biomes",
-  "lavaworks.midnightconfig.biomeColors": "Colors"
+  "lavaworks.midnightconfig.lavaColoringEnabled": "Enable Lava Colors",
+  "lavaworks.midnightconfig.lavaColors": "Lava Colors",
+  "lavaworks.midnightconfig.magmaColoringEnabled": "Enable Magma Colors",
+  "lavaworks.midnightconfig.magmaColors": "Magma Colors",
+  "lavaworks.midnightconfig.chunkReloadComment": "§c§l⚠ CHUNKS MAY NEED RELOADED AFTER CHANGING CONFIGS ⚠"
 }

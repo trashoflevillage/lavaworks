@@ -1,6 +1,6 @@
 {
-  "parent": "lavaworks:block/tintable_block",
+  "parent": "lavaworks:block/tintable",
   "textures": {
-    "tint": "minecraft:block/magma_block"
+    "tint": "minecraft:block/magma"
   }
 }
