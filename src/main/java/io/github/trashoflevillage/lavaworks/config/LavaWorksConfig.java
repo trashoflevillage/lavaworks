@@ -32,9 +32,4 @@ public class LavaWorksConfig extends MidnightConfig {
     );
 
     @Entry(category = CATEGORY_NAME) public static boolean particleColoringEnabled = true;
-
-
-    @Entry(category = CATEGORY_NAME, isColor = true) public static List<String> particlesToColor = Lists.newArrayList(
-
-    );
 }

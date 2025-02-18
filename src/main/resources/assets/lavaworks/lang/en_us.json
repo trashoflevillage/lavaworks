@@ -6,5 +6,6 @@
   "lavaworks.midnightconfig.lavaColors": "Lava Colors",
   "lavaworks.midnightconfig.magmaColoringEnabled": "Enable Magma Colors",
   "lavaworks.midnightconfig.magmaColors": "Magma Colors",
-  "lavaworks.midnightconfig.chunkReloadComment": "§c§l⚠ CHUNKS MAY NEED RELOADED AFTER CHANGING CONFIGS ⚠"
+  "lavaworks.midnightconfig.chunkReloadComment": "§c§l⚠ CHUNKS MAY NEED RELOADED AFTER CHANGING CONFIGS ⚠",
+  "lavaworks.midnightconfig.particleColoringEnabled": "Enable Ember Colors"
 }
