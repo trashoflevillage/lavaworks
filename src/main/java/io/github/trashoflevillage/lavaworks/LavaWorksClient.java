@@ -31,7 +31,7 @@ public class LavaWorksClient implements ClientModInitializer {
                     colors[3] = LavaWorks.getMagmaColor(view, pos.add(0, 0, -1));
 
                     for (int i : colors) {
-                        color = ColorHelper.Argb.averageArgb(color, i);
+                        color = ColorHelper.average(color, i);
                     }
 
                     return color;

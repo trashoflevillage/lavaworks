@@ -36,9 +36,9 @@ public class LavaWorks implements ModInitializer {
                     int r = color.getRed();
                     int g = color.getGreen();
                     int b = color.getBlue();
-                    return ColorHelper.Argb.getArgb(r, g, b);
+                    return ColorHelper.getArgb(r, g, b);
                 }
-                return ColorHelper.Argb.getArgb(255, 255, 255);
+                return ColorHelper.getArgb(255, 255, 255);
             }
         }
         return -1;
@@ -51,9 +51,9 @@ public class LavaWorks implements ModInitializer {
             int r = color.getRed();
             int g = color.getGreen();
             int b = color.getBlue();
-            return ColorHelper.Argb.getArgb(r, g, b);
+            return ColorHelper.getArgb(r, g, b);
         }
-        return ColorHelper.Argb.getArgb(255, 255, 255);
+        return ColorHelper.getArgb(255, 255, 255);
     }
 
     public static int getMagmaColor(@Nullable BlockRenderView view, @Nullable BlockPos pos) {
@@ -67,9 +67,9 @@ public class LavaWorks implements ModInitializer {
                     int r = color.getRed();
                     int g = color.getGreen();
                     int b = color.getBlue();
-                    return ColorHelper.Argb.getArgb(r, g, b);
+                    return ColorHelper.getArgb(r, g, b);
                 }
-                return ColorHelper.Argb.getArgb(255, 255, 255);
+                return ColorHelper.getArgb(255, 255, 255);
             }
         }
         return -1;

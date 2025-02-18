@@ -45,7 +45,7 @@ public class LavaRenderHandlerMixin implements FluidRenderHandler {
 		colors[3] = LavaWorks.getLavaColor(view, pos.add(0, 0, -1));
 
 		for (int i : colors) {
-			color = ColorHelper.Argb.averageArgb(color, i);
+			color = ColorHelper.average(color, i);
 		}
 
 		return color;
