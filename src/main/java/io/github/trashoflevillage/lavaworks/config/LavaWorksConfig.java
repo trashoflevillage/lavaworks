@@ -21,13 +21,15 @@ public class LavaWorksConfig extends MidnightConfig {
 
     @Entry(category = CATEGORY_NAME) public static boolean lavaColoringEnabled = true;
 
-    @Entry(category = CATEGORY_NAME, isColor = true) public static List<String> lavaColors = Lists.newArrayList(
-            "#197dff", "#ffafaf", "#ff5555", "#9966ff"
+    @Entry(category = CATEGORY_NAME) public static List<String> lavaColors = Lists.newArrayList(
+            "#197dff", "#ffafaf", "#ff5555,#ee3333", "#aa33ff,#bb44ff"
     );
+
+    @Entry(category = CATEGORY_NAME) public static int lavaSplotchSize = 10;
 
     @Entry(category = CATEGORY_NAME) public static boolean magmaColoringEnabled = true;
 
-    @Entry(category = CATEGORY_NAME, isColor = true) public static List<String> magmaColors = Lists.newArrayList(
+    @Entry(category = CATEGORY_NAME) public static List<String> magmaColors = Lists.newArrayList(
             "#4bafff", "#ff9999", "#ff7777", "#9966ff"
     );
 

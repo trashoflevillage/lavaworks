@@ -26,7 +26,7 @@ public abstract class LavaEmberParticleMixin extends SpriteBillboardParticle {
             BlockPos pos = new BlockPos((int) d, (int) e, (int) f);
             int color = -1;
             if (clientWorld.getBiome(pos) != null)
-                color = LavaWorks.getLavaColor(Identifier.of(clientWorld.getBiome(pos).getIdAsString()));
+                color = LavaWorks.getLavaColor(Identifier.of(clientWorld.getBiome(pos).getIdAsString()), pos);
             red = ColorHelper.Argb.getRed(color) / 255f;
             blue = ColorHelper.Argb.getBlue(color) / 255f;
             green = ColorHelper.Argb.getGreen(color) / 255f;
