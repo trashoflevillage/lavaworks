@@ -30,4 +30,11 @@ public class LavaWorksConfig extends MidnightConfig {
     @Entry(category = CATEGORY_NAME, isColor = true) public static List<String> magmaColors = Lists.newArrayList(
             "#4bafff", "#ff9999", "#ff7777", "#9966ff"
     );
+
+    @Entry(category = CATEGORY_NAME) public static boolean particleColoringEnabled = true;
+
+
+    @Entry(category = CATEGORY_NAME, isColor = true) public static List<String> particlesToColor = Lists.newArrayList(
+
+    );
 }

@@ -14,6 +14,11 @@ import net.minecraft.world.biome.FoliageColors;
 public class LavaWorksClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        registerBlockColors();
+        registerParticleColors();
+    }
+
+    private void registerBlockColors() {
         ColorProviderRegistry.BLOCK.register(
                 (state, view, pos, tintIndex) ->
                 {
@@ -33,5 +38,9 @@ public class LavaWorksClient implements ClientModInitializer {
                 },
                 Blocks.MAGMA_BLOCK
         );
+    }
+
+    private void registerParticleColors() {
+
     }
 }
