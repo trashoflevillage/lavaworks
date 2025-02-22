@@ -16,10 +16,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"io.github.trashoflevillage.lavaworks.LavaWorks"
+          "io.github.trashoflevillage.lavaworks.Lavaworks"
 		],
 		"client": [
-			"io.github.trashoflevillage.lavaworks.LavaWorksClient"
+			"io.github.trashoflevillage.lavaworks.LavaworksClient"
 		],
 		"modmenu": [
 			"io.github.trashoflevillage.lavaworks.config.ModMenuIntegration"
