@@ -1,7 +1,7 @@
 package io.github.trashoflevillage.lavaworks;
 
-import io.github.trashoflevillage.lavaworks.lavacolorproviders.LavaworksResourceProvider;
-import io.github.trashoflevillage.lavaworks.lavacolorproviders.SplotchesResourceProvider;
+import io.github.trashoflevillage.lavaworks.resourceprovider.LavaworksResourceProvider;
+import io.github.trashoflevillage.lavaworks.resourceprovider.SplotchesResourceProvider;
 import net.minecraft.util.Identifier;
 
 public class LavaworksResourceProviders {

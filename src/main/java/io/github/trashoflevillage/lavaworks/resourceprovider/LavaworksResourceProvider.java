@@ -1,6 +1,7 @@
-package io.github.trashoflevillage.lavaworks.lavacolorproviders;
+package io.github.trashoflevillage.lavaworks.resourceprovider;
 
-import io.github.trashoflevillage.lavaworks.LavaworksResourceProviders;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.texture.Sprite;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockRenderView;
@@ -61,6 +62,20 @@ public abstract class LavaworksResourceProvider {
     ///
     public int getMagmaColorAtPosition(HashMap<String, String> parameters, Identifier id, BlockPos pos) {
         return getColorAtPosition(parameters, id, pos);
+    }
+
+    public Sprite getStillLavaSprite(HashMap<String, String> parameters, Identifier biome, BlockPos pos, Identifier atlas) {
+        Sprite[] sprites = new Sprite[2];
+        return (Sprite)MinecraftClient.getInstance().getSpriteAtlas(atlas).apply(
+                Identifier.ofVanilla("block/cobblestone")
+        );
+    }
+
+    public Sprite getFlowingLavaSprite(HashMap<String, String> parameters, Identifier biome, BlockPos pos, Identifier atlas) {
+        Sprite[] sprites = new Sprite[2];
+        return (Sprite)MinecraftClient.getInstance().getSpriteAtlas(atlas).apply(
+                Identifier.ofVanilla("block/blackstone")
+        );
     }
 
     public HashMap<String, String> parseParameters(String parameters) {

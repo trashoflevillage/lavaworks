@@ -1,4 +1,4 @@
-package io.github.trashoflevillage.lavaworks.lavacolorproviders;
+package io.github.trashoflevillage.lavaworks.resourceprovider;
 
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;

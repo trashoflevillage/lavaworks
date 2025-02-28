@@ -2,7 +2,7 @@ package io.github.trashoflevillage.lavaworks;
 
 import eu.midnightdust.lib.config.MidnightConfig;
 import io.github.trashoflevillage.lavaworks.config.LavaWorksConfig;
-import io.github.trashoflevillage.lavaworks.lavacolorproviders.LavaworksResourceProvider;
+import io.github.trashoflevillage.lavaworks.resourceprovider.LavaworksResourceProvider;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
@@ -69,5 +69,12 @@ public class Lavaworks implements ModInitializer {
             }
         }
         return -1;
+    }
+
+    public static LavaworksResourceProvider getResourceProvider(Identifier key) {
+        if (REGISTERED_RESOURCE_PROVIDERS.containsKey(key)) {
+            return REGISTERED_RESOURCE_PROVIDERS.get(key);
+        }
+        return getResourceProvider(Identifier.of(Lavaworks.MOD_ID, "splotches"));
     }
 }

@@ -34,6 +34,8 @@ dependencies {
 	modApi "com.terraformersmc:modmenu:${project.modmenu_version}"
 
 	modImplementation include ("maven.modrinth:midnightlib:${project.midnightlib_version}")
+
+	include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:${project.mixinextras_version}")))
 }
 
 processResources {
