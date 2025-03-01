@@ -1,5 +1,7 @@
 package io.github.trashoflevillage.lavaworks.resourceprovider;
 
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.texture.Sprite;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ColorHelper;
@@ -54,5 +56,19 @@ public class SplotchesResourceProvider extends LavaworksResourceProvider {
         int g = color.getGreen();
         int b = color.getBlue();
         return ColorHelper.getArgb(r, g, b);
+    }
+
+    @Override
+    public Sprite getStillLavaSprite(HashMap<String, String> parameters, Identifier biome, BlockPos pos, Identifier atlas) {
+        String texture = parameters.get("texture");
+        if (texture == null) texture = "minecraft:block/lava_still";
+        return MinecraftClient.getInstance().getSpriteAtlas(atlas).apply(Identifier.of(texture));
+    }
+
+    @Override
+    public Sprite getFlowingLavaSprite(HashMap<String, String> parameters, Identifier biome, BlockPos pos, Identifier atlas) {
+        String texture = parameters.get("flowing_texture");
+        if (texture == null) texture = "minecraft:block/lava_flow";
+        return MinecraftClient.getInstance().getSpriteAtlas(atlas).apply(Identifier.of(texture));
     }
 }

@@ -65,17 +65,11 @@ public abstract class LavaworksResourceProvider {
     }
 
     public Sprite getStillLavaSprite(HashMap<String, String> parameters, Identifier biome, BlockPos pos, Identifier atlas) {
-        Sprite[] sprites = new Sprite[2];
-        return (Sprite)MinecraftClient.getInstance().getSpriteAtlas(atlas).apply(
-                Identifier.ofVanilla("block/cobblestone")
-        );
+        return MinecraftClient.getInstance().getSpriteAtlas(atlas).apply(Identifier.ofVanilla("block/lava"));
     }
 
     public Sprite getFlowingLavaSprite(HashMap<String, String> parameters, Identifier biome, BlockPos pos, Identifier atlas) {
-        Sprite[] sprites = new Sprite[2];
-        return (Sprite)MinecraftClient.getInstance().getSpriteAtlas(atlas).apply(
-                Identifier.ofVanilla("block/blackstone")
-        );
+        return MinecraftClient.getInstance().getSpriteAtlas(atlas).apply(Identifier.ofVanilla("block/lava_flow"));
     }
 
     public HashMap<String, String> parseParameters(String parameters) {

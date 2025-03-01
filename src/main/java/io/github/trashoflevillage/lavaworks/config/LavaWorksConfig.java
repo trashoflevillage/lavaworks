@@ -34,7 +34,10 @@ public class LavaWorksConfig extends MidnightConfig {
     );
 
     @Entry(category = LAVA) public static List<String> lavaParameters = Lists.newArrayList(
-            "colors=#197dff;splotchSize=10", "colors=#ffafaf;splotchSize=10", "colors=#ff5555,#ee3333;splotchSize=10", "colors=#aa33ff,#bb44ff;splotchSize=10"
+            "colors=#197dff;splotchSize=10;texture=minecraft:block/lava_still;flowing_texture=minecraft:block/lava_flow",
+            "colors=#ffafaf;splotchSize=10;texture=minecraft:block/lava_still;flowing_texture=minecraft:block/lava_flow",
+            "colors=#ff5555,#ee3333;splotchSize=10;texture=minecraft:block/lava_still;flowing_texture=minecraft:block/lava_flow",
+            "colors=#aa33ff,#bb44ff;splotchSize=10;texture=minecraft:block/lava_still;flowing_texture=minecraft:block/lava_flow"
     );
 
     @Entry(category = MAGMA) public static boolean magmaColoringEnabled = true;
