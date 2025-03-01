@@ -78,11 +78,15 @@ public abstract class FluidRendererMixin {
     public Sprite modifyFlowingLavaSprite(Sprite original, BlockRenderView world, BlockPos pos, VertexConsumer vertexConsumer, BlockState blockState, FluidState fluidState) {
         Identifier biomeId = Identifier.of(world.getBiomeFabric(pos).getIdAsString());
         int biomeIndex = LavaWorksConfig.biomeIds.indexOf(biomeId);
+        LavaworksResourceProvider resourceProvider;
+        HashMap<String, String> params;
         if (biomeIndex >= 0 && LavaWorksConfig.lavaParameters.size() >= biomeIndex + 1) {
-            LavaworksResourceProvider resourceProvider = Lavaworks.getResourceProvider(LavaWorksConfig.lavaResourceProviders.get(biomeIndex));
-            HashMap<String, String> params = resourceProvider.parseParameters(LavaWorksConfig.lavaParameters.get(biomeIndex));
-            return resourceProvider.getFlowingLavaSprite(params, biomeId, pos, original.getAtlasId());
+            resourceProvider = Lavaworks.getResourceProvider(LavaWorksConfig.lavaResourceProviders.get(biomeIndex));
+            params = resourceProvider.parseParameters(LavaWorksConfig.lavaParameters.get(biomeIndex));
+        } else {
+            resourceProvider = Lavaworks.getResourceProvider(Lavaworks.getDefaultBiomeBehavior(biomeId).resourceProvider);
+            params = resourceProvider.parseParameters(Lavaworks.getDefaultBiomeBehavior(biomeId).lavaParams);
         }
-        return original;
+        return resourceProvider.getFlowingLavaSprite(params, biomeId, pos, original.getAtlasId());
     }
 }
